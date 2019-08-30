@@ -1,0 +1,35 @@
+include includes/head.pug
+.container
+  table.table.table-striped.custab
+      thead
+        a.btn.btn-primary.btn-xs.pull-right(href='/admin/product/add')
+          b +
+          |  Add new product
+        tr
+          th #
+          th Product Name
+          th Product Image
+          th Product Description
+          th Product Actual Price
+          th Product Selling Price
+          th.text-center Action
+        - var i = 1;
+        each product in products
+         tr
+          td= i++
+          td= product.product_name
+          td 
+           img(src=image_url+product.product_image alt="No Image" width="200px" height="200px")
+          td= product.product_description
+          td= product.product_actual_price
+          td= product.product_selling_price
+          td.text-center
+           a.btn.btn-info.btn-xs(href='/admin/product/edit/'+product._id)
+            span
+            |  Edit
+           a.btn.btn-danger.delete_product.btn-xs(href='#',data-id=product._id)
+            span
+            |  Del
+
+
+      

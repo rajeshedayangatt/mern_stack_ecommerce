@@ -1,0 +1,27 @@
+include ../includes/head.pug
+.container
+  table.table.table-striped.custab
+      thead
+        a.btn.btn-primary.btn-xs.pull-right(href='/admin/subcategory/add')
+          b +
+          |  Add new Category
+        tr
+          th #
+          th Sub Category Name
+          th  Category Name
+          th.text-center Action
+        - var i = 1;
+        each category in subcategories
+         each sub in category.category_sub_items
+          tr
+           td= i++
+           td= sub.sub_category_name
+           td= category.category_name
+           td.text-center
+            a.btn.btn-info.btn-xs(href='/admin/subcategory/edit/'+category._id+"/"+sub.sub_category_id)
+             span
+             |  Edit
+            a.btn.btn-danger.delete_sub_category.btn-xs(href='#',data-id=category._id,data-sub-id=sub.sub_category_id)
+             span
+             |  Del
+

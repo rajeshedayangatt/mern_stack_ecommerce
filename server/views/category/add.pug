@@ -1,0 +1,8 @@
+include ../includes/head.pug
+.container
+  h2 Category Add
+  form(action='/admin/category/save',method="post",id="category_form")
+    .form-group
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter Category Name' name='category_name',required="required")
+    button.btn.btn-default(type='submit') Submit

@@ -1,0 +1,8 @@
+include ../includes/head.pug
+.container
+  h2 Category Edit
+  form(action='/admin/category/update/'+category._id,method="post")
+    .form-group
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter Category Name' name='category_name' value=category.category_name)
+    button.btn.btn-default(type='submit') Submit

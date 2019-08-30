@@ -1,0 +1,19 @@
+include ../includes/head.pug
+.container
+  h2 Sub Category Add
+  form(action='/admin/subcategory/update',method="post")
+    input(type="hidden" name="previous_category" value=category_id)
+    input(type="hidden" name="previous_sub_category" value=subcategory_id)
+    .form-group
+      label(for='name') Category: 
+      select#category.form-control(name="category")
+       option(value="") select category
+        each category in categories
+         if category._id === category_id
+          option(value=category._id selected)=category.category_name+" "+category_id
+         else
+          option(value=category._id)=category.category_name
+    .form-group
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter Category Name' name='sub_category_name' value=subcategory_name)
+    button.btn.btn-default(type='submit') Submit

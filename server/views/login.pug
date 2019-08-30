@@ -1,0 +1,26 @@
+head
+  title Shopify
+link(rel="stylesheet", href="/static/css/bootstrap.min.css")
+link(rel="stylesheet", href="/static/css/login_style.css")
+script(src="/static/js/jquery.js")
+script(src="/static/js/jquery.validate.js")
+script(src="/static/js/bootstrap.min.js")
+script(src="/static/js/login.js")
+.sidenav
+  .login-main-text
+    h2
+      | Shopify Admin
+    p Login  from here to access.
+.main
+  .col-md-6.col-sm-12
+    .login-form
+      form#loginform(action="/admin/auth/login" method="post")
+        .form-group
+          label User Name
+          input.form-control(type='text', placeholder='User Name' ,name="username" required="required")
+        .form-group
+          label Password
+          input.form-control(type='password', placeholder='Password',name="password" required="required")
+        button.btn.btn-black(type='submit') Login
+        //- button.btn.btn-secondary(type='submit') Register
+

@@ -1,0 +1,28 @@
+head
+  title Shopify
+link(rel="stylesheet", href="/static/css/bootstrap.min.css")
+link(rel="stylesheet", href="/static/css/dash.css")
+link(rel="stylesheet", href="/static/css/bootstrap-theme.min.css")
+link(rel="stylesheet", href="/static/css/fontawesome.min.css")
+script(src="/static/js/jquery.js")
+script(src="/static/js/jquery.validate.js")
+script(src="/static/js/bootstrap.min.js")
+script(src="/static/js/sweetalert.min.js")
+script(src="/static/js/custome/noty.js")
+script(src="/static/js/custome/product.js")
+
+
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href='#') WebSiteName
+    ul.nav.navbar-nav
+      li
+        a(href='/admin/product') Products
+      li
+        a(href='/admin/category') Categories
+      li
+        a(href='/admin/subcategory') Sub Categories
+      li
+        a(href='/admin/auth/logout') Logout
+

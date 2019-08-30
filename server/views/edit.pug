@@ -1,0 +1,36 @@
+include includes/head.pug 
+.container
+  h2 Product Edit
+  form(action='/admin/product/update/'+product._id,method="post", enctype="multipart/form-data")
+    input(type="hidden",id="image_status",value="0",name="image_status")
+    input(type="hidden",id="product_id",value=product._id)
+    .form-group
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter Product Name' name='product_name' value=product.product_name)
+    .form-group
+      label(for='pwd') Actual Price:
+      input#pwd.form-control(type='number' placeholder='Enter Actual Price' name='product_actual_price' value=product.product_actual_price)
+    .form-group
+      label(for='pwd') Selling Price:
+      input#pwd.form-control(type='number' placeholder='Enter Seling Price' name='product_selling_price' value=product.product_selling_price)
+    .form-group.image_div
+      label(for='pwd') Image:
+      if product.product_image == ""
+       input#pwd.form-control(type='file' placeholder='upload file' name='product_image')
+      else
+       img(src=image_url+product.product_image alt="No Image" width="200px" height="200px")
+       button.btn.btn-danger.delete(type='button',data-id=product._id) Delete
+    .form-group
+      label(for='name') Category: 
+      select#category.form-control(name="category")
+       option(value="") select category
+        each category in categories
+         option(value=category._id selected= category._id == product.product_category)=category.category_name  
+    .form-group#subcategory_div
+      label(for="subcategory") Sub Category:
+      select#subcategory.form-control(name="subcategory")
+        option(value="") select sub category
+    .form-group
+      label(for='pwd') Description:
+      textarea#pwd.form-control(rows='5' placeholder='Enter Seling Price' name='product_description')=product.product_description
+    button.btn.btn-default(type='submit') Submit

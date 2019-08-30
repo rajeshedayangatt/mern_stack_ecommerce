@@ -1,0 +1,14 @@
+include ../includes/head.pug
+.container
+  h2 Sub Category Add
+  form(action='/admin/subcategory/save',method="post",id="sub_category_form")
+    .form-group
+      label(for='name') Category:
+      select#category.form-control(name="category",required="required")
+       option(value="") select category
+        each category in categories
+         option(value=category._id)=category.category_name
+    .form-group
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter Category Name' name='sub_category_name',required="required")
+    button.btn.btn-default(type='submit') Submit

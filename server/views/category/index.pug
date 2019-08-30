@@ -1,0 +1,26 @@
+include ../includes/head.pug
+.container
+  table.table.table-striped.custab
+      thead
+        a.btn.btn-primary.btn-xs.pull-right(href='/admin/category/add')
+          b +
+          |  Add new Category
+        tr
+          th #
+          th Category Name
+          th.text-center Action
+        - var i = 1;
+        each category in categories
+         tr
+          td= i++
+          td= category.category_name
+          td.text-center
+           a.btn.btn-info.btn-xs(href='/admin/category/edit/'+category._id)
+            span
+            |  Edit
+           a.btn.btn-danger.delete_category.btn-xs(href='#',data-id=category._id)
+            span
+            |  Del
+
+
+      

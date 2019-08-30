@@ -1,0 +1,30 @@
+include includes/head.pug
+.container
+  h2 Product Add
+  form(action='/admin/product/save',method="post", enctype="multipart/form-data",id="product_form")
+    .form-group
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter Product Name' name='product_name',required="required")
+    .form-group
+      label(for='pwd') Actual Price:
+      input#pwd.form-control(type='number' placeholder='Enter Actual Price' name='product_actual_price',required="required")
+    .form-group
+      label(for='pwd') Selling Price:
+      input#pwd.form-control(type='number' placeholder='Enter Seling Price' name='product_selling_price',required="required")
+    .form-group
+      label(for='pwd') Image:
+      input#pwd.form-control(type='file' placeholder='upload file' name='product_image',required="required")
+    .form-group
+      label(for='name') Category:
+      select#category.form-control(name="category",required="required")
+       option(value="") select category
+        each category in categories
+         option(value=category._id)=category.category_name
+    .form-group#subcategory_div
+      label(for="subcategory") Sub Category:
+      select#subcategory.form-control(name="subcategory",required="required")
+        option(value="") select sub category
+    .form-group
+      label(for='pwd') Description:
+      textarea#pwd.form-control(rows='5' placeholder='Enter Seling Price' name='product_description')
+    button.btn.btn-default(type='submit') Submit
